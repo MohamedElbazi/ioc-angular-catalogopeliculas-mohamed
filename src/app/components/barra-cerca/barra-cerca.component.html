@@ -1,0 +1,25 @@
+<form #cercaForm="ngForm">
+  <label for="cercaInput">Buscar película:</label>
+  <input
+    id="cercaInput"
+    name="cerca"
+    type="text"
+    [(ngModel)]="text"
+    #cercaModel="ngModel"
+    minlength="3"
+    required
+    aria-label="Buscar película"
+    [ngClass]="{'input-invalid': cercaModel.invalid && cercaModel.touched}"
+  />
+
+  <button type="button" 
+  (click)="buscar()" 
+  [disabled]="text.length < 3" 
+  [attr.aria-disabled]="text.length < 3">
+  Cercar
+</button>
+
+  <div *ngIf="cercaModel.invalid && cercaModel.touched" class="error-msg">
+    Introduce al menos 3 caracteres
+  </div>
+</form>
