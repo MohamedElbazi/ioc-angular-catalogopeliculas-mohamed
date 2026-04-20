@@ -1,0 +1,14 @@
+<app-barra-cerca (cercar)="filtrar($event)"></app-barra-cerca>
+
+<div class="grid" *ngIf="elements.length > 0; else buit">
+  <app-targeta-element
+    *ngFor="let element of elements; trackBy: trackById"
+    [element]="element">
+  </app-targeta-element>
+</div>
+
+<ng-template #buit>
+  <p class="sense-resultats" aria-live="polite">
+    No hi ha resultats per a la cerca.
+  </p>
+</ng-template>
