@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Element } from '../../models/element.model';
-import { ELEMENTS } from '../../mocks/dades-mock';
+import { ElementCataleg } from '../../models/element.model';
 import { TargetaElementComponent } from '../targeta-element/targeta-element.component';
 import { BarraCercaComponent } from '../barra-cerca/barra-cerca.component';
 
@@ -13,18 +12,14 @@ import { BarraCercaComponent } from '../barra-cerca/barra-cerca.component';
   styleUrls: ['./llista-elements.component.scss']
 })
 export class LlistaElementsComponent {
-  elementsOriginals: Element[] = ELEMENTS;  
-  elements: Element[] = ELEMENTS;          
 
-  
+  elements: ElementCataleg[] = [];
+
   filtrar(text: string) {
-    this.elements = this.elementsOriginals.filter(element =>
-      element.nom.toLowerCase().includes(text.toLowerCase())
-    );
+    console.log('Filtrar:', text);
   }
 
- 
-  trackById(index: number, item: Element): number {
+  trackById(index: number, item: ElementCataleg): string {
     return item.id;
   }
 }

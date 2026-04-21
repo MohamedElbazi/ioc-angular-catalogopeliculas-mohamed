@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Element } from '../../models/element.model';
+import { ElementCataleg } from '../../models/element.model';
+import { PreferitsService } from '../../services/preferits.service';
 
 @Component({
   selector: 'app-targeta-element',
@@ -10,5 +11,20 @@ import { Element } from '../../models/element.model';
   styleUrls: ['./targeta-element.component.scss']
 })
 export class TargetaElementComponent {
-  @Input() element!: Element;  // Recibirá cada elemento desde el componente padre
+
+  @Input() element!: ElementCataleg;
+
+  constructor(public preferitsService: PreferitsService) {}
+
+  togglePreferit() {
+    if (this.preferitsService.esPreferit(this.element.id)) {
+      this.preferitsService.eliminarPreferit(this.element.id);
+    } else {
+      this.preferitsService.afegirPreferit(this.element);
+    }
+  }
+
+  esPreferit(): boolean {
+    return this.preferitsService.esPreferit(this.element.id);
+  }
 }

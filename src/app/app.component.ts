@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { LlistaElementsComponent } from './components/llista-elements/llista-elements.component';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LlistaElementsComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ioc-angular-catalogopeliculas-mohamed';
-
-  constructor() {
-    console.log('Aplicació inicialitzada correctament: Catàleg de Pel·lícules');
-  }
+  title = 'Catàleg de Pel·lícules';
 }

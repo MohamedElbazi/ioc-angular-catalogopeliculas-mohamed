@@ -1,0 +1,44 @@
+{
+  "elements": [
+    {
+      "id": "1",
+      "nom": "Inception",
+      "descripcio": "Somnis dins de somnis",
+      "categoria": "Sci-Fi",
+      "preu": 10,
+      "imatge": "",
+      "popular": true,
+      "stock": 5
+    },
+    {
+      "id": "2",
+      "nom": "Interstellar",
+      "descripcio": "Viatge espacial",
+      "categoria": "Sci-Fi",
+      "preu": 12,
+      "imatge": "",
+      "popular": true,
+      "stock": 3
+    },
+    {
+      "id": "3",
+      "nom": "Batman",
+      "descripcio": "El cavaller fosc",
+      "categoria": "Acció",
+      "preu": 9,
+      "imatge": "",
+      "popular": false,
+      "stock": 7
+    },
+    {
+      "id": "4",
+      "nom": "Avatar",
+      "descripcio": "Planeta Pandora",
+      "categoria": "Fantasia",
+      "preu": 11,
+      "imatge": "",
+      "popular": true,
+      "stock": 4
+    }
+  ]
+}

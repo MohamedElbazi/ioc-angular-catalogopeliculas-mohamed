@@ -1,0 +1,40 @@
+<div class="cataleg-container">
+  <h1>🎬 Catàleg de Pel·lícules</h1>
+
+  <app-formulari-cerca (cerca)="buscar($event)"></app-formulari-cerca>
+
+  <!-- ESTADO: CARREGANT -->
+  <div *ngIf="carregant()" class="estat-carregant">
+    <div class="spinner"></div>
+    <p>⏳ Carregant dades...</p>
+  </div>
+
+  <!-- ESTADO: ERROR -->
+  <div *ngIf="error() && !carregant()" class="estat-error">
+    <div class="error-box">
+      <p>❌ {{ error() }}</p>
+      <button (click)="elementService.obtenirPopulars()" type="button" class="btn-reintentar">
+        🔄 Reintentar
+      </button>
+    </div>
+  </div>
+
+  <!-- ESTADO: MENSAJE (sin resultados) -->
+  <div *ngIf="missatge() && !carregant() && !error()" class="estat-missatge">
+    <p>{{ missatge() }}</p>
+  </div>
+
+  <!-- ESTADO: ÉXITO (mostrar elements) -->
+  <div *ngIf="!carregant() && !error()" class="grid-container">
+    <div *ngIf="elements().length === 0" class="grid-vuit">
+      <p>No hi ha elements per mostrar 🎭</p>
+    </div>
+
+    <div class="grid">
+      <app-targeta-element
+        *ngFor="let element of elements(); trackBy: trackById"
+        [element]="element">
+      </app-targeta-element>
+    </div>
+  </div>
+</div>

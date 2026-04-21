@@ -1,20 +1,27 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-barra-cerca',
   standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './barra-cerca.component.html',
-  styleUrls: ['./barra-cerca.component.scss']
+  imports: [CommonModule, FormsModule],
+  template: `
+    <input
+      type="text"
+      [(ngModel)]="text"
+      (input)="onInput()"
+      placeholder="Cerca pel·lícules..."
+    />
+  `
 })
 export class BarraCercaComponent {
+
   text: string = '';
 
-  @Output() cercar = new EventEmitter<string>();  
+  @Output() cerca = new EventEmitter<string>();
 
-  buscar() {
-    this.cercar.emit(this.text);
+  onInput() {
+    this.cerca.emit(this.text);
   }
 }

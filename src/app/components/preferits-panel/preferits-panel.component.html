@@ -1,0 +1,59 @@
+<div class="preferits-panel">
+  <h2>Meus Preferits ({{ preferitsService.totalPreferits() }})</h2>
+
+  <div *ngIf="preferitsService.preferits().length === 0" class="buit">
+    <p>No hi ha preferits afegits 🤷</p>
+  </div>
+
+  <div *ngFor="let preferit of preferitsService.preferits(); trackBy: trackByPreferitId"
+       class="preferit-card">
+
+    <div class="header">
+      <img [src]="preferit.imatgeUrl" [alt]="preferit.titol" class="imatge-mini">
+      <div class="info">
+        <h3>{{ preferit.titol }}</h3>
+        <p class="categoria">{{ preferit.categoria }} - {{ preferit.preu }}€</p>
+      </div>
+      <button class="btn-eliminar" (click)="eliminarPreferit(preferit.id)">
+        ✕
+      </button>
+    </div>
+
+    <div class="notes-section" [formGroup]="formularis.get(preferit.id)!">
+      <h4>Notes:</h4>
+
+      <div formArrayName="notes">
+        <div *ngFor="let notaControl of obtenerNotesArray(preferit.id).controls; let i = index"
+             class="nota-item">
+
+          <input
+            type="text"
+            [formControlName]="i"
+            placeholder="Escriu una nota..."
+            class="input-nota"
+            [class.error]="notaControl.touched && notaControl.errors"
+            (blur)="guardarNotas(preferit.id)"
+          >
+
+          <button type="button"
+                  class="btn-eliminar-nota"
+                  (click)="eliminarNota(preferit.id, i)">
+            ✕
+          </button>
+
+          <p *ngIf="notaControl.touched && notaControl.errors" class="error-msg">
+            {{ notaControl.errors['required'] ? 'Camp obligatori' : 'Mínim 3 caràcters' }}
+          </p>
+
+        </div>
+      </div>
+
+      <button type="button"
+              class="btn-afegir-nota"
+              (click)="afegirNota(preferit.id)">
+        + Afegir nota
+      </button>
+    </div>
+
+  </div>
+</div>

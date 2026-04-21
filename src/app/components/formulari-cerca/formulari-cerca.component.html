@@ -1,0 +1,37 @@
+<div class="form">
+
+  <input
+    type="text"
+    [formControl]="termeCerca"
+    placeholder="Cercar pel·lícula..."
+  />
+
+  <button *ngIf="termeCerca.value" (click)="netejar()">
+    Netejar
+  </button>
+
+  <!-- VALIDANDO -->
+  <p *ngIf="termeCerca.pending">🔄 Validant...</p>
+
+  <!-- ERRORES -->
+  <div *ngIf="termeCerca.touched && termeCerca.errors">
+
+    <p *ngIf="termeCerca.errors['required']">
+      Camp obligatori
+    </p>
+
+    <p *ngIf="termeCerca.errors['minlength']">
+      Mínim 2 caràcters
+    </p>
+
+    <p *ngIf="termeCerca.errors['maxlength']">
+      Màxim 50 caràcters
+    </p>
+
+    <p *ngIf="termeCerca.errors['sensResultats']">
+      No hi ha resultats
+    </p>
+
+  </div>
+
+</div>

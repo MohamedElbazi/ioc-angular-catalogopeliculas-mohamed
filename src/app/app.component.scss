@@ -1,12 +1,117 @@
-h1 {
-  color: #1976d2;
-  font-size: 36px;
-  text-align: center;
-  margin-top: 20px;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
-p {
-  font-size: 18px;
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+
+  h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &.active {
+        border-bottom: 2px solid white;
+        padding-bottom: 0.25rem;
+      }
+    }
+  }
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+
+.app-footer {
+  background-color: #333;
+  color: white;
   text-align: center;
-  color: #555;
+  padding: 1.5rem;
+  flex-shrink: 0;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      width: 100%;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+
+  .app-main {
+    padding: 1.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0.75rem;
+
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      gap: 0.75rem;
+
+      a {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .app-main {
+    padding: 1rem 0.5rem;
+  }
+
+  .app-footer {
+    padding: 1rem;
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
 }
