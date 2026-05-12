@@ -1,0 +1,53 @@
+h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.cerca-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+input {
+  flex: 1;
+  min-width: 220px;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+}
+
+.pelicula-item {
+  background-color: white;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  max-width: 800px;
+}
+
+.pelicula-item p {
+  margin: 5px 0;
+}
+
+.pelicula-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.pelicula-item a:hover {
+  text-decoration: underline;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}

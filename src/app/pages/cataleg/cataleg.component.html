@@ -1,0 +1,9 @@
+<h2>Catàleg de Pel·lícules</h2>
+<div class="cataleg-scroll">
+  <div *ngFor="let pelicula of pelicules" class="pelicula-item">
+    <h3>{{ pelicula.titol }}</h3>
+    <p>Any: {{ pelicula.any }}</p>
+    <p>Gènere: {{ pelicula.genere }}</p>
+    <a [routerLink]="['/detall', pelicula.id]">Veure detall</a>
+  </div>
+</div>

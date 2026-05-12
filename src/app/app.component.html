@@ -1,2 +1,16 @@
-<h1>El meu catàleg de pel·lícules</h1>
-<p>Benvingut, sóc Mohamed El Bazi. Aquesta és la meva aplicació Angular.</p>
+<nav class="nav">
+  <a routerLink="/cataleg" routerLinkActive="active">Catàleg</a>
+  <a routerLink="/cerca" routerLinkActive="active">Cerca</a>
+  <a routerLink="/preferits" routerLinkActive="active">Preferits</a>
+  <div *ngIf="usuari$ | async as usuari; else loginLink">
+    <span>{{ usuari.nom }}</span>
+    <button (click)="logout()">Tancar sessió</button>
+  </div>
+  <ng-template #loginLink>
+    <a routerLink="/login" routerLinkActive="active">Iniciar sessió</a>
+  </ng-template>
+</nav>
+
+<hr>
+
+<router-outlet></router-outlet>

@@ -1,27 +1,63 @@
-# IocAngularCatalogopeliculasMohamed
+# Catàleg de Pel·lícules
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+Aplicació Angular per gestionar un catàleg de pel·lícules amb navegació, autenticació i optimitzacions de rendiment.
 
-## Development server
+## Mapa de Rutes
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+| Ruta | Component | Accés |
+|------|-----------|-------|
+| / | Redirecció a /cataleg | Públic |
+| /cataleg | CatalegComponent | Públic |
+| /cerca | CercaComponent | Públic |
+| /detall/:id | DetallComponent | Públic |
+| /preferits | PreferitsComponent | Privat (requereix autenticació) |
+| /login | LoginComponent | Públic |
+| ** | Redirecció a /cataleg | Públic |
 
-## Code scaffolding
+## Instruccions d'Execució en Local
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clona el repositori:
+   ```
+   git clone [url-repositori]
+   cd ioc-angular-catalogopeliculas-mohamed
+   ```
 
-## Build
+2. Instal·la les dependències:
+   ```
+   npm install
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Executa el servidor de desenvolupament:
+   ```
+   ng serve
+   ```
 
-## Running unit tests
+4. Obre http://localhost:4200 al navegador.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Build de Producció
 
-## Running end-to-end tests
+Executa `ng build --configuration production` per generar el build de producció. Els fitxers es guardaran a `dist/`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Per obtenir estadístiques de la mida del bundle:
+```bash
+npm run build:stats
+npm run analyze
+```
 
-## Further help
+Mida aproximada del bundle: actualitza aquest valor després d'executar `ng build --configuration production`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Credencials de Prova
+
+- Email: admin@test.com
+- Contrasenya: 1234
+
+## Notes addicionals
+
+Aquest projecte utilitza un llistat amb scroll manual per mostrar les pel·lícules, ja que `@angular/cdk` no està instal·lat en l'entorn actual.
+
+### Scripts útils
+
+- `npm run start`
+- `npm run build`
+- `npm run build:stats`
+- `npm run analyze`

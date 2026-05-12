@@ -1,0 +1,25 @@
+<h2>Cerca de Pel·lícules</h2>
+<form (ngSubmit)="onSearch()" class="cerca-form">
+  <input
+    type="text"
+    [(ngModel)]="query"
+    name="query"
+    placeholder="Cerca per títol, gènere o director"
+  />
+  <button type="submit">Buscar</button>
+</form>
+
+<div *ngIf="resultats.length > 0; else senseResultats">
+  <p>Mostrant {{ resultats.length }} resultats</p>
+  <div *ngFor="let pelicula of resultats" class="pelicula-item">
+    <h3>{{ pelicula.titol }}</h3>
+    <p>Any: {{ pelicula.any }}</p>
+    <p>Gènere: {{ pelicula.genere }}</p>
+    <p>Director: {{ pelicula.director }}</p>
+    <a [routerLink]="['/detall', pelicula.id]">Veure detall</a>
+  </div>
+</div>
+
+<ng-template #senseResultats>
+  <p>No s'han trobat pel·lícules amb aquesta cerca.</p>
+</ng-template>

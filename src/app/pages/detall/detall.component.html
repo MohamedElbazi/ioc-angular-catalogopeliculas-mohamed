@@ -1,0 +1,10 @@
+<div *ngIf="pelicula">
+  <h2>{{ pelicula.titol }}</h2>
+  <p><strong>Any:</strong> {{ pelicula.any }}</p>
+  <p><strong>Gènere:</strong> {{ pelicula.genere }}</p>
+  <p><strong>Director:</strong> {{ pelicula.director }}</p>
+  <p><strong>Descripció:</strong> {{ pelicula.descripcio }}</p>
+</div>
+<div *ngIf="!pelicula">
+  <p>Pel·lícula no trobada.</p>
+</div>
